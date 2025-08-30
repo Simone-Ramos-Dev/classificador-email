@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Editor
+.vscode/
+
+# Environment variables
+.env
+
+# Flask specific
+instance/
