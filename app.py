@@ -9,7 +9,7 @@ print("🔹 Carregando variáveis de ambiente...")
 load_dotenv()
 
 app = Flask(__name__)
-# Certifique-se de que FLASK_SECRET_KEY esteja definida no seu .env
+
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "super-secret-key-fallback-if-not-set")
 ALLOWED_EXTENSIONS = {"txt", "pdf"}
 
@@ -267,7 +267,7 @@ def analyze_sentiment_with_huggingface(text: str):
 
     except Exception as e:
         print(f"❌ Erro ao analisar sentimento com Hugging Face: {e}")
-        # Retorna um valor padrão em caso de erro
+    
         return "Erro na Análise", 0.0
 
 # ---------------- Rotas ----------------
@@ -290,7 +290,7 @@ def classify():
         print(f"🔹 Arquivo recebido: {file.filename} ({ext})")
         
         # Para garantir que o arquivo seja lido corretamente, salve-o temporariamente ou use BytesIO
-        # Aqui, estamos passando o objeto de arquivo diretamente para pypdf (que aceita file-like objects)
+        # Aqui, passando o objeto de arquivo diretamente para pypdf (que aceita file-like objects)
         if ext == "txt":
             text = file.read().decode("utf-8", errors="ignore")
         elif ext == "pdf":
